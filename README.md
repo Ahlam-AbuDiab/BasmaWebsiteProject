@@ -95,6 +95,39 @@ Main Tables:
 * Mona Ahmed Hijaze 220210969
 * Huda Jameel Salama 220222664
 
+## 📸 Screenshots
+
+### Home Page
+
+![Home](screenshots/indexPage.png)
+
+### Stories Page
+
+![Stories](screenshots/StoriesPage.png)
+
+### StoryView Page
+
+![Stories](screenshots/StoryView.png)
+
+### Photo Archive
+
+![Photos](screenshots/PhotosPage.png)
+
+### PhotoView Page
+
+![Stories](screenshots/photoView.png)
+
+### Video Archive
+
+![Videos](screenshots/VideosPage.png)
+
+### Share With Us
+
+![Share](screenshots/FormPage.png)
+
+### Basma Team
+
+![Dashboard](screenshots/BasmaTeam.png)
 📄 License
 This project was developed as a graduation project for academic purposes.
 
