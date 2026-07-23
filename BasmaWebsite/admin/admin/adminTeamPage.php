@@ -1,7 +1,8 @@
 <?php
-include '../auth.php'; 
-include '../dbConnection.php';
+require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/../dbConnection.php';
 $adminName = $_SESSION['username'] ?? 'Admin';
+$username = mysqli_real_escape_string($conn, $_SESSION['username']);
 $query = "SELECT * FROM team ORDER BY id ASC";
 $result = mysqli_query($conn, $query);
 ?>
@@ -15,7 +16,7 @@ $result = mysqli_query($conn, $query);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/navbar.css">
     <link rel="stylesheet" href="../assets/css/admin.css">
-    <link rel="icon" href="../assets/images/logos/basmah.png">
+     <link rel="icon" href="../assets/images/logos/basmah.png">
     <title> فريق العمل</title>
     <style>
     .member-row {
@@ -33,29 +34,9 @@ $result = mysqli_query($conn, $query);
         <div class="menu-overlay" id="menuOverlay"></div>
         <div class="container">
             <div class="navbar-right">
-                <div class="nav-item dropdown admin-menu">
-                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
-                        <span class="admin-name"><?php echo htmlspecialchars($adminName); ?></span>
-                        <span class="admin-icon-wrap">
-                            <i class="bi bi-person-fill"></i>
-                        </span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href="profile.php">
-                                <i class="bi bi-person me-2"></i> الملف الشخصي
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <a class="dropdown-item text-danger" href="../logout.php">
-                                <i class="bi bi-box-arrow-right me-2"></i> تسجيل الخروج
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <a class="navbar-brand m-0 me-4" href="#">
+                    <img src="../assets/images/logos/basmah.png" alt="logo" height="100" width="150">
+                </a>
             </div>
             <div class="navbar-center">
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -111,9 +92,29 @@ $result = mysqli_query($conn, $query);
                 </div>
             </div>
             <div class="navbar-left">
-                <a class="navbar-brand m-0 me-4" href="#">
-                    <img src="../assets/images/logos/basmah.png" alt="logo" height="100" width="150">
-                </a>
+                <div class="nav-item dropdown admin-menu">
+                    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+                        <span class="admin-name"><?php echo htmlspecialchars($adminName); ?></span>
+                        <span class="admin-icon-wrap">
+                            <i class="bi bi-person-fill"></i>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="profile.php">
+                                <i class="bi bi-person me-2"></i> الملف الشخصي
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-danger" href="../logout.php">
+                                <i class="bi bi-box-arrow-right me-2"></i> تسجيل الخروج
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
